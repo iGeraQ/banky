@@ -28,6 +28,7 @@ class Document(Base):
     error: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     created_at: Mapped[datetime] = mapped_column(default=lambda: datetime.now(timezone.utc))
     processed_at: Mapped[Optional[datetime]] = mapped_column(nullable=True)
+    file_hash: Mapped[str] = mapped_column(String, unique=True, nullable=False)
 
 
 
