@@ -1,11 +1,11 @@
 
 import enum, uuid
-from sqlalchemy.orm import declarative_base, Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy import String, Date, Text, Enum, ForeignKey, Numeric, Boolean
 from datetime import datetime, timezone
 from typing import Optional
+from app.database.base import Base
 
-Base = declarative_base()
 
 class TypeTransaction(str, enum.Enum):
     INCOME = "INCOME"

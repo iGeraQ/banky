@@ -3,10 +3,10 @@ from sqlalchemy.orm import declarative_base, relationship, Mapped, mapped_column
 from sqlalchemy import String, Date, Text, Enum, ForeignKey, Numeric, Boolean
 from datetime import datetime, timezone
 from typing import Optional
+from app.database.base import Base
 from .bank import BankBrand
 import enum, uuid
 
-Base = declarative_base()
 
 class DocStatus(str, enum.Enum):
     INGESTED="INGESTED"; CLASSIFIED="CLASSIFIED"; TEXT_EXTRACTED="TEXT_EXTRACTED"
