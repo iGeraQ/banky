@@ -1,7 +1,7 @@
 # app/api/main.py
 from fastapi import FastAPI, UploadFile, File, HTTPException, Depends, BackgroundTasks
 from sqlalchemy.orm import Session
-from app.core.db import get_db
+from app.core.db import get_db, SessionLocal
 from app.core.executor import EXECUTOR
 from app.core.storage import save_upload, hash_file
 from app.core.state import set_status
@@ -15,7 +15,6 @@ def health_check():
     return {"status": "healthy", "service": "banky-api"}
 
 def _process_document(doc_id: str):
-    from app.core.db import SessionLocal
     db = SessionLocal()
     try:
         doc = db.get(Document, doc_id)
@@ -26,20 +25,30 @@ def _process_document(doc_id: str):
     finally:
         db.close()
 
+
 @app.post("/upload")
 async def upload(file: UploadFile = File(...), db: Session = Depends(get_db)):
     path, ctype = save_upload(file, name=file.filename or "default_filename")
     fhash = hash_file(path)
-
+    print(fhash)
     existing = db.query(Document).filter_by(file_hash=fhash).first()
-    if existing and existing.status == DocStatus.DONE:
+    
+    
+    if existing:
         return {"doc_id": existing.id, "status": existing.status, "cached": True}
 
     doc = Document(filename=file.filename, content_type=ctype, storage_path=path, file_hash=fhash)
-    db.add(doc); db.commit(); db.refresh(doc)
+    db.add(doc)
+    db.commit()
+    db.refresh(doc)
 
     EXECUTOR.submit(_process_document, doc.id)
     return {"doc_id": doc.id, "status": doc.status}
+
+
+
+
+
 
 @app.get("/status/{doc_id}")
 def status(doc_id: str, db: Session = Depends(get_db)):
@@ -47,6 +56,12 @@ def status(doc_id: str, db: Session = Depends(get_db)):
     if not doc:
         raise HTTPException(404, "doc not found")
     return {"doc_id": doc.id, "status": doc.status, "error": doc.error}
+
+
+
+
+
+
 
 @app.get("/result/{doc_id}")
 def result(doc_id: str, db: Session = Depends(get_db)):

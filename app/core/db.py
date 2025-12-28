@@ -38,7 +38,7 @@ def _try_connect(retries: int = 10, delay_sec: float = 1.5) -> None:
         try:
             with engine.connect() as conn:
                 conn.execute(text("SELECT 1"))
-            logger.info("✅ Conexión a DB exitosa.")
+            logger.info("Conexión a DB exitosa.")
             return
         except Exception as exc:  # noqa: BLE001
             last_exc = exc
