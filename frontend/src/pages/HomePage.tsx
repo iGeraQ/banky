@@ -30,10 +30,8 @@ export const HomePage: React.FC = () => {
               Powered by Advanced OCR Technology
             </div>
             
-            <div className="space-y-6 max-w-4xl">
+            <div className="space-y-6 max-w-4xl backdrop-blur-sm">
               <h1 className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
-                {/* Backdrop Blur Effect - Oval Shape */}
-                <span className="absolute inset-0 bg-background/40 backdrop-blur-md rounded-full -z-10 scale-110 blur-sm"></span>
                 <span className="relative bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
                   Transform Bank Statements into
                 </span>
