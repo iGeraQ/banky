@@ -46,7 +46,7 @@ export const AnimatedGridBackground: React.FC = () => {
           value: 0.6,
           animation: {
             enable: true,
-            speed: 1,
+            speed: .5,
             sync: false,
           },
         },
