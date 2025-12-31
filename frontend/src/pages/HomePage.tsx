@@ -30,17 +30,19 @@ export const HomePage: React.FC = () => {
               Powered by Advanced OCR Technology
             </div>
             
-            <div className="space-y-6 max-w-4xl backdrop-blur-sm">
-              <h1 className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
-                <span className="relative bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
-                  Transform Bank Statements into
-                </span>
-                <span className="block mt-2 relative bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent">Structured Data</span>
-              </h1>
-              <p className="mx-auto max-w-[800px] text-muted-foreground text-lg md:text-xl leading-relaxed">
-                Professional tool for accountants and financial professionals to extract, 
-                analyze, and export transaction data from Mexican bank statements with precision and ease.
-              </p>
+            <div className="space-y-6 max-w-4xl">
+                <h1 className="relative text-5xl font-bold tracking-tighter sm:text-6xl md:text-7xl lg:text-8xl">
+                <div className='inline-flex flex-col backdrop-blur-sm rounded-lg'>
+                  <span className="relative bg-gradient-to-r from-foreground via-foreground to-primary bg-clip-text text-transparent">
+                    Transform Bank Statements into
+                  </span>
+                <span className="inline-block mt-2 relative bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent">Structured Data</span>
+                </div>
+                </h1>
+                <p className="mx-auto max-w-[800px] text-muted-foreground text-lg md:text-xl leading-relaxed">
+                  Professional tool for accountants and financial professionals to extract, 
+                  analyze, and export transaction data from Mexican bank statements with precision and ease.
+                </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
