@@ -59,7 +59,7 @@ export const Navbar: React.FC = () => {
               className="font-medium"
             >
               <Sparkles className="mr-2 h-4 w-4" />
-              Features
+              Características
             </Button>
           </Link>
           <Button variant="ghost" size="sm" className="font-medium">
@@ -68,7 +68,7 @@ export const Navbar: React.FC = () => {
           </Button>
           <Button variant="ghost" size="sm" className="font-medium">
             <HelpCircle className="mr-2 h-4 w-4" />
-            Support
+            Soporte
           </Button>
         </div>
         
@@ -119,13 +119,13 @@ export const Navbar: React.FC = () => {
                   <DropdownMenuItem asChild className="cursor-pointer">
                     <Link to="/profile">
                       <User className="mr-2 h-4 w-4" />
-                      Profile
+                      Perfil
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={logout} className="cursor-pointer text-destructive focus:text-destructive">
                     <LogOut className="mr-2 h-4 w-4" />
-                    Logout
+                    Cerrar Sesión
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -134,7 +134,7 @@ export const Navbar: React.FC = () => {
             <>
               <Link to="/login" className="hidden md:block">
                 <Button variant="ghost" size="sm" className="font-medium">
-                  Sign In
+                  Iniciar Sesión
                 </Button>
               </Link>
               <Link to="/login">
@@ -143,7 +143,7 @@ export const Navbar: React.FC = () => {
                   size="sm" 
                   className="shadow-md shadow-primary/25 hover:shadow-lg hover:shadow-primary/30 transition-all"
                 >
-                  Get Started
+                  Comenzar
                 </Button>
               </Link>
             </>
@@ -168,7 +168,7 @@ export const Navbar: React.FC = () => {
             <Link to="/" onClick={() => setMobileMenuOpen(false)}>
               <Button variant="ghost" size="sm" className="w-full justify-start">
                 <Sparkles className="mr-2 h-4 w-4" />
-                Features
+                Características
               </Button>
             </Link>
             <Button variant="ghost" size="sm" className="w-full justify-start">
@@ -177,7 +177,7 @@ export const Navbar: React.FC = () => {
             </Button>
             <Button variant="ghost" size="sm" className="w-full justify-start">
               <HelpCircle className="mr-2 h-4 w-4" />
-              Support
+              Soporte
             </Button>
             {isAuthenticated && (
               <Link to="/dashboard" onClick={() => setMobileMenuOpen(false)}>
@@ -190,7 +190,7 @@ export const Navbar: React.FC = () => {
             {!isAuthenticated && (
               <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
                 <Button variant="default" size="sm" className="w-full">
-                  Sign In
+                  Iniciar Sesión
                 </Button>
               </Link>
             )}
